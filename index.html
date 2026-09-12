@@ -1,1 +1,940 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>Nabi Studio | Language Learning</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #fff8fb;
+    color: #493743;
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* HEADER */
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(255, 248, 251, 0.96);
+    border-bottom: 1px solid #f1dce7;
+    backdrop-filter: blur(10px);
+}
+
+.navbar {
+    max-width: 1180px;
+    margin: auto;
+    padding: 14px 22px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-image {
+    width: 58px;
+    height: 58px;
+    border-radius: 16px;
+    overflow: hidden;
+    background: #f8dce9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.logo-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+.logo-text {
+    font-size: 24px;
+    font-weight: 700;
+    color: #9b5577;
+}
+
+nav {
+    display: flex;
+    gap: 22px;
+    flex-wrap: wrap;
+}
+
+nav a {
+    font-size: 14px;
+    font-weight: 600;
+    color: #684f5d;
+}
+
+nav a:hover {
+    color: #b15f86;
+}
+
+/* HERO */
+
+.hero {
+    max-width: 1180px;
+    margin: auto;
+    padding: 90px 22px 70px;
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.badge {
+    display: inline-block;
+    padding: 8px 15px;
+    border-radius: 30px;
+    background: #f8dce9;
+    color: #985473;
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 18px;
+}
+
+.hero h1 {
+    font-size: clamp(42px, 6vw, 70px);
+    line-height: 1.05;
+    color: #684457;
+    margin-bottom: 22px;
+}
+
+.hero h1 span {
+    color: #b45f87;
+}
+
+.hero p {
+    font-size: 18px;
+    max-width: 620px;
+    color: #765f6b;
+    margin-bottom: 28px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+.button {
+    display: inline-block;
+    padding: 14px 23px;
+    border-radius: 14px;
+    font-weight: 700;
+    transition: 0.2s;
+}
+
+.button-primary {
+    background: #b9688d;
+    color: white;
+}
+
+.button-primary:hover {
+    background: #985473;
+    transform: translateY(-2px);
+}
+
+.button-secondary {
+    background: white;
+    border: 1px solid #e7c8d7;
+    color: #89536d;
+}
+
+.button-secondary:hover {
+    background: #fff0f6;
+}
+
+/* HERO CARD */
+
+.hero-card {
+    background: linear-gradient(145deg, #fbe4ed, #f5d7e5);
+    border-radius: 30px;
+    padding: 40px;
+    min-height: 340px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 20px 50px rgba(148, 83, 117, 0.12);
+}
+
+.hero-card-content {
+    text-align: center;
+}
+
+.hero-card-content .big {
+    font-size: 72px;
+    margin-bottom: 15px;
+}
+
+.hero-card-content h2 {
+    color: #70475c;
+    margin-bottom: 8px;
+}
+
+.hero-card-content p {
+    font-size: 15px;
+    margin: 0;
+}
+
+/* GENERAL */
+
+.section {
+    max-width: 1180px;
+    margin: auto;
+    padding: 75px 22px;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.section-title h2 {
+    font-size: 38px;
+    color: #684457;
+    margin-bottom: 10px;
+}
+
+.section-title p {
+    color: #806a75;
+}
+
+/* LANGUAGES */
+
+.language-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.language-card {
+    background: white;
+    border: 1px solid #f0dce6;
+    border-radius: 24px;
+    padding: 28px;
+    box-shadow: 0 12px 35px rgba(115, 67, 91, 0.06);
+    transition: 0.2s;
+}
+
+.language-card:hover {
+    transform: translateY(-5px);
+}
+
+.language-top {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 18px;
+}
+
+.flag {
+    font-size: 42px;
+}
+
+.language-card h3 {
+    color: #684457;
+    font-size: 23px;
+}
+
+.capital {
+    color: #ad6686;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.language-card p {
+    color: #78636e;
+    margin-bottom: 18px;
+}
+
+.language-link {
+    color: #ad5f84;
+    font-weight: 700;
+}
+
+/* TURKISH EXPLANATION */
+
+.turkish-box {
+    background: #fff;
+    border: 2px solid #f0d3e0;
+    border-radius: 28px;
+    padding: 38px;
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.turkish-box h2 {
+    color: #70475c;
+    margin-bottom: 12px;
+    font-size: 30px;
+}
+
+.turkish-box p {
+    color: #76616d;
+    font-size: 17px;
+}
+
+/* SHOP */
+
+.shop-section {
+    background: #fff0f6;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.product {
+    background: white;
+    border-radius: 24px;
+    padding: 25px;
+    border: 1px solid #efd8e4;
+    box-shadow: 0 10px 30px rgba(115, 67, 91, 0.06);
+}
+
+.product-cover {
+    height: 180px;
+    border-radius: 18px;
+    background: linear-gradient(135deg, #f8dce9, #f3cddd);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #75495f;
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.product h3 {
+    color: #684457;
+    margin-bottom: 8px;
+}
+
+.product p {
+    color: #7c6872;
+    font-size: 14px;
+    margin-bottom: 18px;
+}
+
+.product-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.price {
+    font-size: 18px;
+    font-weight: 800;
+    color: #a7587e;
+}
+
+.buy-button {
+    border: none;
+    cursor: pointer;
+    padding: 11px 16px;
+    border-radius: 11px;
+    background: #b9688d;
+    color: white;
+    font-weight: 700;
+}
+
+/* FREE RESOURCES */
+
+.resource-box {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.resource {
+    background: white;
+    border-radius: 20px;
+    padding: 25px;
+    border: 1px solid #f0dce6;
+}
+
+.resource h3 {
+    color: #684457;
+    margin-bottom: 8px;
+}
+
+.resource p {
+    color: #79656f;
+}
+
+/* ABOUT */
+
+.about {
+    background: #fff;
+}
+
+.about-inner {
+    max-width: 850px;
+    margin: auto;
+    text-align: center;
+}
+
+.about-inner h2 {
+    color: #684457;
+    font-size: 38px;
+    margin-bottom: 15px;
+}
+
+.about-inner p {
+    color: #75616c;
+    font-size: 17px;
+}
+
+/* CTA */
+
+.cta {
+    max-width: 1100px;
+    margin: 70px auto;
+    padding: 55px 30px;
+    background: #f5d8e5;
+    border-radius: 30px;
+    text-align: center;
+}
+
+.cta h2 {
+    color: #684457;
+    font-size: 35px;
+    margin-bottom: 12px;
+}
+
+.cta p {
+    color: #735e69;
+    margin-bottom: 22px;
+}
+
+/* FOOTER */
+
+footer {
+    background: #684457;
+    color: white;
+    padding: 40px 22px;
+    text-align: center;
+}
+
+footer h3 {
+    margin-bottom: 8px;
+}
+
+footer p {
+    opacity: 0.8;
+    font-size: 14px;
+}
+
+.footer-handle {
+    margin-top: 12px;
+    color: #f6d8e5;
+    font-weight: 700;
+}
+
+/* MOBILE */
+
+@media (max-width: 850px) {
+
+    .navbar {
+        flex-direction: column;
+    }
+
+    nav {
+        justify-content: center;
+    }
+
+    .hero {
+        grid-template-columns: 1fr;
+        padding-top: 55px;
+    }
+
+    .language-grid,
+    .product-grid,
+    .resource-box {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-card {
+        min-height: 250px;
+    }
+
+    .section {
+        padding: 55px 18px;
+    }
+
+    .logo-text {
+        font-size: 21px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+
+<header>
+    <div class="navbar">
+
+        <a href="#home" class="logo-area">
+            <div class="logo-image">
+                <img src="Nabi.jpeg" alt="Nabi Studio Logo">
+            </div>
+
+            <div class="logo-text">
+                Nabi Studio
+            </div>
+        </a>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#languages">Languages</a>
+            <a href="#shop">Shop</a>
+            <a href="#free">Free Resources</a>
+            <a href="#about">About</a>
+        </nav>
+
+    </div>
+</header>
+
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+
+    <div>
+
+        <span class="badge">
+            Language Learning • Digital PDFs
+        </span>
+
+        <h1>
+            Learn languages<br>
+            <span>your way.</span>
+        </h1>
+
+        <p>
+            Learn Korean, Bulgarian and English with clear,
+            beginner-friendly explanations in Turkish.
+        </p>
+
+        <div class="hero-buttons">
+            <a href="#shop" class="button button-primary">
+                Explore the Shop
+            </a>
+
+            <a href="#languages" class="button button-secondary">
+                Explore Languages
+            </a>
+        </div>
+
+    </div>
+
+    <div class="hero-card">
+
+        <div class="hero-card-content">
+
+            <div class="big">♡</div>
+
+            <h2>Nabi Studio</h2>
+
+            <p>
+                Korean • Bulgarian • English
+            </p>
+
+            <p>
+                Turkish explanations
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- LANGUAGES -->
+
+<section class="section" id="languages">
+
+    <div class="section-title">
+        <h2>Choose Your Language</h2>
+
+        <p>
+            Learn with Turkish explanations and practical examples.
+        </p>
+    </div>
+
+
+    <div class="language-grid">
+
+
+        <!-- KOREAN -->
+
+        <div class="language-card">
+
+            <div class="language-top">
+
+                <div class="flag">
+                    🇰🇷
+                </div>
+
+                <div>
+                    <h3>Korean</h3>
+
+                    <div class="capital">
+                        Capital: Seoul
+                    </div>
+                </div>
+
+            </div>
+
+            <p>
+                Learn Korean vocabulary, grammar,
+                sentence patterns and everyday expressions.
+            </p>
+
+            <a href="#shop" class="language-link">
+                View Korean materials →
+            </a>
+
+        </div>
+
+
+        <!-- BULGARIAN -->
+
+        <div class="language-card">
+
+            <div class="language-top">
+
+                <div class="flag">
+                    🇧🇬
+                </div>
+
+                <div>
+                    <h3>Bulgarian</h3>
+
+                    <div class="capital">
+                        Capital: Sofia
+                    </div>
+                </div>
+
+            </div>
+
+            <p>
+                Learn Bulgarian vocabulary,
+                useful expressions and everyday language.
+            </p>
+
+            <a href="#shop" class="language-link">
+                View Bulgarian materials →
+            </a>
+
+        </div>
+
+
+        <!-- ENGLISH -->
+
+        <div class="language-card">
+
+            <div class="language-top">
+
+                <div class="flag">
+                    🌎
+                </div>
+
+                <div>
+                    <h3>English</h3>
+
+                    <div class="capital">
+                        International language
+                    </div>
+                </div>
+
+            </div>
+
+            <p>
+                Improve your English vocabulary,
+                grammar and everyday communication.
+            </p>
+
+            <a href="#shop" class="language-link">
+                View English materials →
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- TURKISH EXPLANATION -->
+
+<section class="section">
+
+    <div class="turkish-box">
+
+        <h2>
+            Everything is explained in Turkish.
+        </h2>
+
+        <p>
+            Nabi Studio is designed for Turkish-speaking learners.
+            Korean, Bulgarian and English materials are explained
+            clearly in Turkish, step by step.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- SHOP -->
+
+<section class="section shop-section" id="shop">
+
+    <div class="section-title">
+
+        <h2>Digital Language Shop</h2>
+
+        <p>
+            Study materials, lessons and downloadable PDF resources.
+        </p>
+
+    </div>
+
+
+    <div class="product-grid">
+
+
+        <!-- KOREAN PRODUCT -->
+
+        <div class="product">
+
+            <div class="product-cover">
+                Korean<br>
+                Beginner PDF
+            </div>
+
+            <h3>Korean Beginner</h3>
+
+            <p>
+                Beginner Korean lessons with Turkish explanations.
+            </p>
+
+            <div class="product-bottom">
+
+                <span class="price">
+                    Coming Soon
+                </span>
+
+                <button class="buy-button" type="button">
+                    Buy Now
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- BULGARIAN PRODUCT -->
+
+        <div class="product">
+
+            <div class="product-cover">
+                Bulgarian<br>
+                Beginner PDF
+            </div>
+
+            <h3>Bulgarian Beginner</h3>
+
+            <p>
+                Beginner Bulgarian lessons with Turkish explanations.
+            </p>
+
+            <div class="product-bottom">
+
+                <span class="price">
+                    Coming Soon
+                </span>
+
+                <button class="buy-button" type="button">
+                    Buy Now
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- ENGLISH PRODUCT -->
+
+        <div class="product">
+
+            <div class="product-cover">
+                English<br>
+                Beginner PDF
+            </div>
+
+            <h3>English Beginner</h3>
+
+            <p>
+                Beginner English lessons with Turkish explanations.
+            </p>
+
+            <div class="product-bottom">
+
+                <span class="price">
+                    Coming Soon
+                </span>
+
+                <button class="buy-button" type="button">
+                    Buy Now
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- FREE RESOURCES -->
+
+<section class="section" id="free">
+
+    <div class="section-title">
+
+        <h2>Free Resources</h2>
+
+        <p>
+            Start learning with free materials from Nabi Studio.
+        </p>
+
+    </div>
+
+
+    <div class="resource-box">
+
+        <div class="resource">
+            <h3>Korean Vocabulary</h3>
+            <p>
+                Useful Korean words and everyday expressions.
+            </p>
+        </div>
+
+        <div class="resource">
+            <h3>Bulgarian Vocabulary</h3>
+            <p>
+                Practical Bulgarian words for daily life.
+            </p>
+        </div>
+
+        <div class="resource">
+            <h3>English Practice</h3>
+            <p>
+                Simple English vocabulary and sentence practice.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ABOUT -->
+
+<section class="section about" id="about">
+
+    <div class="about-inner">
+
+        <h2>About Nabi Studio</h2>
+
+        <p>
+            Nabi Studio is a language-learning space created for
+            people who want to learn Korean, Bulgarian and English
+            with Turkish explanations.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- CTA -->
+
+<div class="cta">
+
+    <h2>
+        Start your language journey.
+    </h2>
+
+    <p>
+        Learn step by step. Study at your own pace.
+    </p>
+
+    <a href="#shop" class="button button-primary">
+        Visit the Shop
+    </a>
+
+</div>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <h3>Nabi Studio</h3>
+
+    <p>
+        Korean • Bulgarian • English
+    </p>
+
+    <p class="footer-handle">
+        @euphoria.nabi
+    </p>
+
+    <p style="margin-top:15px;">
+        © 2026 Nabi Studio. All rights reserved.
+    </p>
+
+</footer>
+
+</body>
+  </html>
